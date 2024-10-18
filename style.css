@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4e2c1; /* Tono beige claro, simula pergamino antiguo */
+    margin: 0;
+  }
+  
+  .card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Añade un efecto 3D */
+    cursor: pointer;
+  }
+  
+  .front, .inside {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Oculta la parte de atrás durante la rotación */
+    border: 2px solid #8b4513; /* Borde marrón oscuro, estilo envejecido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4ecd8; /* Color de fondo que imita papel antiguo */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más marcada para un aspecto antiguo */
+    transition: transform 1s;
+  }
+  
+  .front {
+    background-color: #f4ecd8; /* Color de papel antiguo en la parte frontal */
+    color: #8b4513; /* Texto marrón oscuro */
+    font-family: 'Georgia', serif; /* Fuente estilo manuscrito */
+  }
+  
+  .inside {
+    background-color: #f4ecd8; /* Color de papel antiguo en la parte interna */
+    color: #8b4513; /* Texto marrón oscuro */
+    transform: rotateY(180deg); /* Comienza oculta con un giro de 180 grados */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Añade algo de espacio interior */
+  }
+  
+  .card.open .front {
+    transform: rotateY(180deg); /* Gira la parte frontal hacia atrás */
+  }
+  
+  .card.open .inside {
+    transform: rotateY(0); /* Muestra la parte interna sin rotación */
+  }
